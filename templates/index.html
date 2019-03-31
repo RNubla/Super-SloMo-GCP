@@ -17,7 +17,7 @@
             font-family: 'Iceberg', cursive;
         }
     </style>
-    <link rel="stylesheet" href="slow.css">
+    <!-- <link rel="stylesheet" href="slow.css"> -->
 </head>
 <body>
     <div class="container-fluid">
@@ -30,6 +30,7 @@
         <div class="row" id="main" name="main">
             <div class="col-md-12" id="inner" name="inner" style="background-color: rgb(114, 114, 114)">              
                 <br>
+                {% block content %}
                 <div class="dropdown">
                     <button class=" center btn btn-large dropdown-toggle" type="button" id="Upload your videoButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                         Upload your video
@@ -39,15 +40,24 @@
                             <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                         </div>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                        </div>
+                        <form method="post" enctype="multipart/form-data" class="custom-file">
+                            {% csrf_token %}
+                            <input type="file" name="myfile" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                            <!-- <label class="custom-file-label" for="inputGroupFile01">Choose file</label> -->
+                            <div class="form-group">
+                                <button type="button" class="btn btn-large btn-primary">Submit</button>
+                            </div>
+                        </form>
                         <br>
                     </div>
                 </div>
                 <br>
-                <input type="button" class="center btn btn-large btn-primary" value="Submit">
+                <!-- <input type="submit" class="center btn btn-large btn-primary" value="Submit"> -->
+                <br>
+                <!-- {% if uploaded_file_url %}
+                <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+                {% endif %}
+                {% endblock %} -->
                 <br>
                 <p class="text-center" style="color: lavender">Turn this...</p>
                 <img src="img/fastcar.gif" class="img-fluid center">
