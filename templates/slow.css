@@ -8,8 +8,11 @@
     /* width: 50%; */
   }
 input{
-    padding: 2.5%;
+    padding: 2%;
 }
 img{
-    padding: 2.5%;
+    padding: 2%;
+}
+body{
+    font-family: 'Iceberg', cursive;
 }
