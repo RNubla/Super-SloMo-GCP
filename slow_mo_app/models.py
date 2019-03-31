@@ -2,9 +2,9 @@ from django.db import models
 
 # Create your models here.
 class uploadedVideo(models.Model):
-    vidName = models.CharField(max_length=100)
-    vidDuration = models.TimeField()
+    name = models.CharField(max_length=500)
+    video = models.FileField(upload_to='inputVid/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
 
-class downloadVideo(models.Model):
-    vidOutName = models.CharField(max_length=25)
-    vidOutDuration = models.TextField()
+def __str__(self):
+    return self.name + ": " + str(self.video)
